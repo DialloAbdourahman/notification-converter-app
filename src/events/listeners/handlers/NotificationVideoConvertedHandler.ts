@@ -12,7 +12,11 @@ export const notificationVideoConvertedHandler = async (
 
     const awsSesHelper = new AwsSesHelper();
 
-    await awsSesHelper.sendSuccessEmail(data.email, data.resourceId);
+    await awsSesHelper.sendSuccessEmail(
+      data.email,
+      data.resourceId,
+      data.fullname
+    );
 
     console.log("email sent");
 

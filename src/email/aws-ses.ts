@@ -19,7 +19,7 @@ export class AwsSesHelper {
     });
   }
 
-  async sendSuccessEmail(email: string, resourceId: string) {
+  async sendSuccessEmail(email: string, resourceId: string, fullname: string) {
     try {
       const mailOptions: Mail.Options = {
         from: process.env.AWS_SES_SMTP_SENDER_EMAIL as string,
@@ -27,7 +27,7 @@ export class AwsSesHelper {
         subject: "Your video has been converted successfully",
         html: `
             <div>
-                <h1 style="color: green;">Your video has been converted successfully !!!</h1>
+                <h2 style="color: green;">Dear ${fullname}, your video has been converted successfully !!!</h2>
                 <p>
                     Click <a href="${process.env.RESOURCE_PAGE_URL}/${resourceId}">here</a> to
                     view and download your audio file
@@ -44,7 +44,7 @@ export class AwsSesHelper {
     }
   }
 
-  async sendFailureEmail(email: string, resourceId: string) {
+  async sendFailureEmail(email: string, resourceId: string, fullname: string) {
     try {
       const mailOptions: Mail.Options = {
         from: process.env.AWS_SES_SMTP_SENDER_EMAIL as string,
@@ -52,7 +52,7 @@ export class AwsSesHelper {
         subject: "Your video has not been converted.",
         html: `
             <div>
-                <h1 style="color: red;">Your video convertion failed</h1>
+                <h2 style="color: red;">Dear ${fullname}, your video convertion failed</h2>
                 <p>
                     Click <a href="${process.env.RESOURCE_PAGE_URL}/${resourceId}">here</a> to
                     view and retry
