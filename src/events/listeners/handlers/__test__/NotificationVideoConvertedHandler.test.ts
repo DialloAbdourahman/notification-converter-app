@@ -6,6 +6,7 @@ it("should handle a notification video converted event", async () => {
   const data: NotificationVideoConvertedEvent["data"] = {
     email: "test@test.com",
     resourceId: "asdf",
+    fullname: "test",
   };
 
   // Create a fake channel object and message object.
