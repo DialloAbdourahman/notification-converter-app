@@ -3,7 +3,7 @@ import { rabbitmqWrapper } from "./rabbitmq-wrapper";
 require("dotenv").config();
 
 const start = async () => {
-  console.log("Starting the Notification service......");
+  console.log("Starting the Notification service...");
 
   if (!process.env.ACCESS_TOKEN_JWT_KEY) {
     console.log("ACCESS_TOKEN_JWT_KEY must be defined.");
