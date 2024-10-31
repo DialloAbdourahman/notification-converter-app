@@ -17,20 +17,6 @@ jest.mock("../email/aws-ses.ts", () => {
   };
 });
 
-// Runs before all our tests starts
-beforeAll(async () => {
-  process.env.ACCESS_TOKEN_JWT_KEY = "1234";
-  process.env.MONGO_URI = "mongodb://localhost:27017/resource-test";
-
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
-    console.log("Connected to mongodb successfully");
-  } catch (error) {
-    console.log("Database connection error", error);
-    // process.exit();
-  }
-});
-
 beforeEach(async () => {
   jest.clearAllMocks();
   const collections = await mongoose.connection.db?.collections();
