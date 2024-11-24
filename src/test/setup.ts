@@ -12,6 +12,12 @@ jest.mock("../email/aws-ses.ts", () => {
         sendFailureEmail: jest.fn().mockImplementation(() => {
           return Promise.resolve(true);
         }),
+        sendActivateAccountEmail: jest.fn().mockImplementation(() => {
+          return Promise.resolve(true);
+        }),
+        sendResetPasswordEmail: jest.fn().mockImplementation(() => {
+          return Promise.resolve(true);
+        }),
       };
     }),
   };
